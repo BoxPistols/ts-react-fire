@@ -3286,6 +3286,11 @@ as-array@^2.0.0:
   resolved "https://registry.yarnpkg.com/as-array/-/as-array-2.0.0.tgz#4f04805d87f8fce8e511bc2108f8e5e3a287d547"
   integrity sha512-1Sd1LrodN0XYxYeZcN1J4xYZvmvTwD5tDWaPUGPIzH1mFsmzsPnVtd2exWhecMjtZk/wYWjNZJiD3b1SLCeJqg==
 
+asagiri@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/asagiri/-/asagiri-0.1.1.tgz#0582607f34fbe3272d7d44f69a5a7adbbed6ff05"
+  integrity sha512-qPlSkcdDe67+V2chGlCcLCCg6aTw5yWdNy/xYM/T/46wkBI90rMfArPzn7Dfw/+FnxbN0OK8DMeCfRMo0Rvjdw==
+
 asap@~2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"

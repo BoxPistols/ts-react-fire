@@ -10,6 +10,7 @@
     "@types/node": "^16.11.48",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "asagiri": "^0.1.1",
     "firebase": "^9.9.2",
     "firebase-tools": "^11.6.0",
     "react": "^18.2.0",

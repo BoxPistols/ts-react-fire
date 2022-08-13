@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import "./style/App.css"
 import { db } from "./firebase"
+import { Home } from "./components/Home"
 
 const authDomain = process.env.REACT_APP_FIREBASE_DOMAIN
 console.log(authDomain)
@@ -21,12 +22,17 @@ const App: React.FC = () => {
 
   return (
     <>
-      App
+      <hr />
       <div className="App">
-        {tasks.map((task) => (
-          <h3 key="task.id">{task.title}</h3>
-        ))}
+        <h1 className="design-font-en">Fire App</h1>
+        <Home />
+        <ul>
+          {tasks.map((task) => (
+            <li key={task.id}>{task.title}</li>
+          ))}
+        </ul>
       </div>
+      <hr />
     </>
   )
 }

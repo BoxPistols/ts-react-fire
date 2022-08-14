@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { ShowCount } from "./ShowCount";
+import { useState } from 'react'
+import { ShowCount } from './ShowCount'
 
 export const Home = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -25,5 +25,5 @@ export const Home = () => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}

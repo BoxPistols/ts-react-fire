@@ -1,5 +1,3 @@
-import React from "react";
-
 // PropsをHomeに渡す
 export const ShowCount = ({ num }: { num: string | number }) => {
   return (
@@ -12,5 +10,5 @@ export const ShowCount = ({ num }: { num: string | number }) => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}

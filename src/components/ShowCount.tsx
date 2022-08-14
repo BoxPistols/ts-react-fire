@@ -1,12 +1,16 @@
-import React from "react"
+import React from "react";
 
 // PropsをHomeに渡す
 export const ShowCount = ({ num }: { num: string | number }) => {
   return (
     <>
       <section>
-        <p>{num}</p>
+        <div className="flex flex-center">
+          <div>
+            <p>{num}</p>
+          </div>
+        </div>
       </section>
     </>
-  )
-}
+  );
+};

@@ -8,5 +8,9 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "**/node_modules": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

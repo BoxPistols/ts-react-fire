@@ -4,8 +4,8 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,14 +17,36 @@ body {
   align-items: center;
   justify-content: center; */
   font-size: 1rem;
- }
+  line-height: 1.75;
+}
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 section {
   margin: 1vw 0;
-  padding: 1vh 1vw;
+  padding: 24px;
+}
+
+/**
+ * Custom MUI material-ui
+*/
+input[type='email'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='url'],
+select,
+textarea {
+  /* padding: 0.3rem 0.8rem; */
+  padding: 0.85em 1.5em;
+}
+
+section.section {
+  min-width: 50vw;
+  max-width: 1000px;
 }

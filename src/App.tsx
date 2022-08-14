@@ -25,33 +25,37 @@ const App: React.FC = () => {
 
   return (
     <>
-      <div className="App flex flex-column flex-center">
+      <div className="App flex flex-column flex-center container">
         <h1 className="design-font-en">Fire App</h1>
-        <FormControl>
-          <Box style={{ display: 'grid', gap: 12 }} className="">
-            <TextField
-              InputLabelProps={{ shrink: true }}
-              variant="outlined"
-              label="New Task?"
-              value={input}
-              // onChange={() => (e: React.ChangeEvent<HTMLInputElement>) =>
-              //   setInput(e.target.value)}
-              onChange={(
-                e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-              ) => setInput(e.target.value)}
-            />
-            <Button variant="contained">Submit</Button>
-          </Box>
-        </FormControl>
-        {input}
+        <section className="section">
+          <FormControl>
+            <Box style={{ display: 'grid', gap: 12 }} className="">
+              <TextField
+                InputLabelProps={{ shrink: true }}
+                variant="outlined"
+                label="New Task?"
+                value={input}
+                // onChange={() => (e: React.ChangeEvent<HTMLInputElement>) =>
+                //   setInput(e.target.value)}
+                onChange={(
+                  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+                ) => setInput(e.target.value)}
+              />
+              <Button variant="contained" disabled={!input}>
+                Submit
+              </Button>
+            </Box>
+          </FormControl>
+        </section>
 
-        <ul>
-          {tasks.map((task) => (
-            <li key={task.id}>{task.title}</li>
-          ))}
-        </ul>
+        <section className="section">
+          <ul>
+            {tasks.map((task) => (
+              <li key={task.id}>{task.title}</li>
+            ))}
+          </ul>
+        </section>
       </div>
-
       {/* <h2 className="design-font-en">TEST</h2>
       <Home /> */}
     </>

@@ -1,7 +1,7 @@
 import { Button, Grid, ListItem } from '@material-ui/core'
 import { createTheme, ThemeProvider } from '@material-ui/core/styles'
 
-import { EditOutlined } from '@material-ui/icons'
+import { DeleteOutlined, EditOutlined } from '@material-ui/icons'
 import { useState } from 'react'
 import { db } from '../firebase'
 import { CustomizedInputs } from './CustomFormInput'
@@ -23,6 +23,7 @@ const themeX = createTheme({
         },
       },
       outlined: {
+        color: '#456',
         border: 0,
       },
     },
@@ -61,6 +62,10 @@ export const TaskItem = ({ id, title }: Props) => {
     db.collection('tasks').doc(id).set({ title: edit }, { merge: true })
   }
   // 削除
+  const deleteTask = () => {
+    let result = window.confirm('削除しますか')
+    result && db.collection('tasks').doc(id).delete()
+  }
 
   return (
     <>
@@ -76,6 +81,9 @@ export const TaskItem = ({ id, title }: Props) => {
             />
             <Button onClick={editTask} variant="outlined">
               <EditOutlined />
+            </Button>
+            <Button onClick={deleteTask} variant="outlined">
+              <DeleteOutlined />
             </Button>
           </Grid>
         </ListItem>

@@ -24,10 +24,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+/*
 section {
   margin: 1vw 0;
   padding: 24px;
+} */
+
+section.section {
+  min-width: 50vw;
+  max-width: 1000px;
 }
 
 /**
@@ -44,9 +49,13 @@ select,
 textarea {
   /* padding: 0.3rem 0.8rem; */
   padding: 0.85em 1.5em;
+  /* width: auto; */
+}
+/*
+.MuiInputLabel-outlined.MuiInputLabel-shrink {
+  transform: translate(0px, -16px) scale(0.85)!important;
 }
 
-section.section {
-  min-width: 50vw;
-  max-width: 1000px;
-}
+.PrivateNotchedOutline-legendNotched-6 {
+  max-width: 0!important;
+} */

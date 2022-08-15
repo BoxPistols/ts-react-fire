@@ -1,10 +1,12 @@
-import { Box, Button, FormControl, TextField } from '@material-ui/core'
+import { Box, Button, FormControl } from '@material-ui/core'
 import React, { useEffect, useState } from 'react'
+import { CustomizedInputs } from './components/CustomFormInput'
 import { db } from './firebase'
 import './style/App.css'
 
 // import { Home } from "./components/Home";
-// const authDomain = process.env.REACT_APP_FIREBASE_DOMAIN
+// import CustomizedInputs from './components/CustomFormInput';
+const authDomain = process.env.REACT_APP_FIREBASE_DOMAIN
 // console.log(authDomain)
 
 const App: React.FC = () => {
@@ -30,21 +32,17 @@ const App: React.FC = () => {
         <section className="section">
           <FormControl>
             <Box style={{ display: 'grid', gap: 12 }} className="">
-              <TextField
-                InputLabelProps={{ shrink: true }}
+              <CustomizedInputs
                 variant="outlined"
                 label="New Task?"
                 value={input}
-                // onChange={() => (e: React.ChangeEvent<HTMLInputElement>) =>
-                //   setInput(e.target.value)}
-                onChange={(
-                  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-                ) => setInput(e.target.value)}
+                onChange={(e) => setInput(e.target.value)}
               />
               <Button variant="contained" disabled={!input}>
                 Submit
               </Button>
             </Box>
+            {input}
           </FormControl>
         </section>
 

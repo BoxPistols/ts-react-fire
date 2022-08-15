@@ -6,7 +6,7 @@ import { db } from './firebase'
 import './style/App.css'
 
 // import { Home } from "./components/Home";
-const authDomain = process.env.REACT_APP_FIREBASE_DOMAIN
+// const authDomain = process.env.REACT_APP_FIREBASE_DOMAIN
 // console.log(authDomain)
 
 export const App = () => {
@@ -37,7 +37,13 @@ export const App = () => {
         <h1 className="design-font-en">Fire App</h1>
         <section className="section">
           <FormControl>
-            <Box style={{ display: 'grid', gap: 12 }} className="">
+            <Box
+              style={{
+                display: 'grid',
+                gap: 8,
+              }}
+              className=""
+            >
               <CustomizedInputs
                 variant="outlined"
                 label="New Task?"

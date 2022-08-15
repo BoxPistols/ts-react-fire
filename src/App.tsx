@@ -1,11 +1,12 @@
-import { Box, Button, FormControl } from '@material-ui/core'
+import { Box, Button, FormControl, List } from '@material-ui/core'
 import { useEffect, useState } from 'react'
 import { CustomizedInputs } from './components/CustomFormInput'
+import { TaskItem } from './components/TaskItem'
 import { db } from './firebase'
 import './style/App.css'
 
 // import { Home } from "./components/Home";
-// const authDomain = process.env.REACT_APP_FIREBASE_DOMAIN
+const authDomain = process.env.REACT_APP_FIREBASE_DOMAIN
 // console.log(authDomain)
 
 export const App = () => {
@@ -55,11 +56,11 @@ export const App = () => {
 
         <section className="section">
           <h3 className="design-font-en">List</h3>
-          <ul>
+          <List>
             {tasks.map((task) => (
-              <li key={task.id}>{task.title}</li>
+              <TaskItem key={task.id} id={task.id} title={task.title} />
             ))}
-          </ul>
+          </List>
         </section>
       </div>
       {/* <h2 className="design-font-en">TEST</h2>

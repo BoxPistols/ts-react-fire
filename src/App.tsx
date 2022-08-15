@@ -1,17 +1,17 @@
 import { Box, Button, FormControl } from '@material-ui/core'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CustomizedInputs } from './components/CustomFormInput'
 import { db } from './firebase'
 import './style/App.css'
 
 // import { Home } from "./components/Home";
-// import CustomizedInputs from './components/CustomFormInput';
-const authDomain = process.env.REACT_APP_FIREBASE_DOMAIN
+// const authDomain = process.env.REACT_APP_FIREBASE_DOMAIN
 // console.log(authDomain)
 
-const App: React.FC = () => {
+export const App = () => {
+  // export const App = () => {
   const [tasks, setTasks] = useState([{ id: '', title: '' }])
-  const [input, setInput] = useState('...input')
+  const [input, setInput] = useState('')
 
   useEffect(() => {
     const unSub = db.collection('tasks').onSnapshot((getSsnapshot) => {
@@ -25,6 +25,11 @@ const App: React.FC = () => {
     return () => unSub()
   }, [])
 
+  const newTask = () => {
+    db.collection('tasks').add({ title: input })
+    setInput('')
+  }
+
   return (
     <>
       <div className="App flex flex-column flex-center container">
@@ -36,17 +41,20 @@ const App: React.FC = () => {
                 variant="outlined"
                 label="New Task?"
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setInput(e.target.value)
+                }
               />
-              <Button variant="contained" disabled={!input}>
+              {/* Add Button */}
+              <Button variant="contained" disabled={!input} onClick={newTask}>
                 Submit
               </Button>
             </Box>
-            {input}
           </FormControl>
         </section>
 
         <section className="section">
+          <h3 className="design-font-en">List</h3>
           <ul>
             {tasks.map((task) => (
               <li key={task.id}>{task.title}</li>

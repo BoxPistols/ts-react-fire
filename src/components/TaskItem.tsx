@@ -1,7 +1,52 @@
 import { Button, Grid, ListItem } from '@material-ui/core'
+import { createTheme, ThemeProvider } from '@material-ui/core/styles'
+
+import { EditOutlined } from '@material-ui/icons'
 import { useState } from 'react'
 import { db } from '../firebase'
 import { CustomizedInputs } from './CustomFormInput'
+
+// サイトのベースとなる独自のテーマを作成する
+const themeX = createTheme({
+  // palette: {
+  //   type: 'dark',
+  // },
+  overrides: {
+    MuiButton: {
+      root: {
+        fontSize: '14px',
+        lineHeight: 1.5,
+        padding: '12px',
+        '&:hover': {
+          backgroundColor: 'none',
+          color: '#999999',
+        },
+      },
+      outlined: {
+        border: 0,
+      },
+    },
+    MuiInputBase: {
+      input: {
+        '&[type=text]': {
+          outline: 'none',
+          borderWidth: 0,
+          background: '#f3f3f3',
+          minWidth: '100%',
+          '&:focus': {
+            backgroundColor: '#cde',
+            color: '#123',
+          },
+        },
+      },
+    },
+    MuiListItem: {
+      gutters: {
+        padding: 4,
+      },
+    },
+  },
+})
 
 type Props = {
   id: string
@@ -11,24 +56,30 @@ type Props = {
 export const TaskItem = ({ id, title }: Props) => {
   const [edit, setEdit] = useState(title)
 
+  // 編集
   const editTask = () => {
     db.collection('tasks').doc(id).set({ title: edit }, { merge: true })
   }
+  // 削除
+
   return (
     <>
-      <ListItem id={id}>
-        <Grid container justifyContent="space-between" alignItems="center">
-          <div style={{ minWidth: 150 }}>{title}</div>
-          <CustomizedInputs
-            label="edit"
-            value={edit}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setEdit(e.target.value)
-            }
-          />
-          <Button onClick={editTask}>Edit</Button>
-        </Grid>
-      </ListItem>
+      <ThemeProvider theme={themeX}>
+        <ListItem id={id}>
+          <Grid container justifyContent="flex-start" alignItems="center">
+            {/* <div style={{ minWidth: 150 }}>{title}</div> */}
+            <CustomizedInputs
+              // label="edit"
+              value={edit}
+              onChange={(e) => setEdit(e.target.value)}
+              style={{ margin: '8px 0 4px 0', minWidth: '320px' }}
+            />
+            <Button onClick={editTask} variant="outlined">
+              <EditOutlined />
+            </Button>
+          </Grid>
+        </ListItem>
+      </ThemeProvider>
     </>
   )
 }

@@ -1,4 +1,4 @@
-html {
+/* html {
   font-size: 16px;
 }
 
@@ -10,25 +10,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  /* background-color: #282c34;
-  color: white; */
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
   font-size: 1rem;
   line-height: 1.75;
-}
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-/*
-section {
-  margin: 1vw 0;
-  padding: 24px;
-} */
 
 section.section {
   min-width: 50vw;
@@ -38,24 +27,7 @@ section.section {
 /**
  * Custom MUI material-ui
 */
-input[type='email'],
-input[type='number'],
-input[type='password'],
-input[type='search'],
-input[type='tel'],
-input[type='text'],
-input[type='url'],
-select,
-textarea {
-  /* padding: 0.3rem 0.8rem; */
-  padding: 0.85em 1.5em;
-  /* width: auto; */
-}
-/*
-.MuiInputLabel-outlined.MuiInputLabel-shrink {
-  transform: translate(0px, -16px) scale(0.85)!important;
-}
 
-.PrivateNotchedOutline-legendNotched-6 {
-  max-width: 0!important;
-} */
+/*
+input[type='email'],input[type='number'],input[type='password'],input[type='search'],input[type='tel'],input[type='text'],input[type='url'],select, textarea { xxx }
+*/

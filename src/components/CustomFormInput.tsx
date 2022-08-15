@@ -45,6 +45,7 @@ type Props = Partial<{
   defaultValue: string
   variant: string
   value: string
+  style: React.CSSProperties | undefined
   onChange:
     | ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>
     | undefined
@@ -56,6 +57,7 @@ export const CustomizedInputs = ({
   label,
   onChange,
   value,
+  style,
 }: Props) => {
   const classes = useStyles()
 
@@ -70,6 +72,7 @@ export const CustomizedInputs = ({
           value={value}
           id={id}
           onChange={onChange}
+          style={style}
         />
       </FormControl>
     </form>

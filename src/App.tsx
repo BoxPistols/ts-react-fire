@@ -40,7 +40,7 @@ export const App = () => {
             <Box
               style={{
                 display: 'grid',
-                gap: 8,
+                gap: 4,
               }}
               className=""
             >

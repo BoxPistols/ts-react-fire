@@ -1,10 +1,14 @@
 .login {
   color: tomato;
   margin: auto;
-  display: grid;
-  gap: 12px;
+  /* display: grid; */
+  /* gap: 12px;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
   width: 100%;
   max-width: fit-content;
+}
+
+.mt {
+  margin-top: 16px;
 }

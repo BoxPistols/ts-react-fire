@@ -1,4 +1,4 @@
-import { Button, FormControl, TextField } from '@material-ui/core'
+import { Button, FormControl, TextField, Typography } from '@material-ui/core'
 import { useEffect, useState } from 'react'
 // useState
 import auth from '../firebase'
@@ -25,6 +25,7 @@ export const Login = (props: any) => {
             name="email"
             label="E-mail"
             value={email}
+            className={styles.mt}
             onChange={(
               e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
             ) => {
@@ -36,6 +37,7 @@ export const Login = (props: any) => {
             label="Password"
             type="password"
             value={password}
+            className={styles.mt}
             onChange={(
               e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
             ) => {
@@ -68,6 +70,11 @@ export const Login = (props: any) => {
           >
             {isLogin ? 'Login' : 'Resister'}
           </Button>
+          <Typography align="center">
+            <span onClick={() => SetIsLogin(!isLogin)}>
+              {isLogin ? 'Create New Accont' : 'Back To Login'}
+            </span>
+          </Typography>
         </FormControl>
       </div>
     </>

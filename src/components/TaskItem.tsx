@@ -7,6 +7,11 @@ import {
 import { DeleteOutlined, EditOutlined } from '@material-ui/icons'
 import { useState } from 'react'
 import { db } from '../firebase'
+//Firebase ver9 compliant (modular)
+
+//Firebase ver9 compliant (modular)
+import { collection, deleteDoc, doc, setDoc } from 'firebase/firestore'
+
 import { CustomizedInputs } from './CustomFormInput'
 
 // TypeScript
@@ -15,30 +20,45 @@ type Props = {
   title: string
 }
 
-export const TaskItem = ({ id, title }: Props) => {
+export const TaskItem: React.FC<Props> = (props) => {
   // makeStyles
   const classes = useStyles()
+
+  const [title, setTitle] = useState(props.title)
+  //Firebase ver9 compliant (modular)
+  const tasksRef = collection(db, 'tasks')
   // 編集
-  const [edit, setEdit] = useState(title)
-  const editTask = () => {
-    db.collection('tasks').doc(id).set({ title: edit }, { merge: true })
+  const editTask = async () => {
+    //Firebase ver9 compliant (modular)
+    await setDoc(
+      doc(tasksRef, props.id),
+      {
+        title: title,
+      },
+      { merge: true },
+    )
   }
+
   // 削除
-  const deleteTask = () => {
-    let result = window.confirm('削除しますか')
-    result && db.collection('tasks').doc(id).delete()
+  const deleteTask = async () => {
+    //Firebase ver9 compliant (modular)
+    await deleteDoc(doc(tasksRef, props.id))
   }
 
   return (
     <>
       <ThemeProvider theme={themeX}>
-        <ListItem id={id}>
+        <ListItem>
+          <h2>{props.title}</h2>
+
           <Grid container justifyContent="flex-start" alignItems="center">
             {/* <div style={{ minWidth: 150 }}>{title}</div> */}
             <CustomizedInputs
-              // label="edit"
-              value={edit}
-              onChange={(e) => setEdit(e.target.value)}
+              label="edit"
+              value={title}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setTitle(e.target.value)
+              }
               style={{
                 margin: '8px 0 4px 0',
                 minWidth: '320px',

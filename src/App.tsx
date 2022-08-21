@@ -5,14 +5,24 @@ import { TaskItem } from './components/TaskItem'
 import { db } from './firebase'
 import './style/App.css'
 
+import { ExitToApp } from '@material-ui/icons'
+import auth from './firebase'
+
 // import { Home } from "./components/Home";
 // const authDomain = process.env.REACT_APP_FIREBASE_DOMAIN
 // console.log(authDomain)
 
-export const App = () => {
+export const App = (props: any) => {
   // export const App = () => {
   const [tasks, setTasks] = useState([{ id: '', title: '' }])
   const [input, setInput] = useState('')
+
+  useEffect(() => {
+    const unSub = auth.onAuthStateChanged((user) => {
+      !user && props.history.push('/login')
+    })
+    return () => unSub()
+  })
 
   useEffect(() => {
     const unSub = db.collection('tasks').onSnapshot((getSsnapshot) => {
@@ -35,6 +45,23 @@ export const App = () => {
     <>
       <div className="App flex flex-column flex-center container">
         <h1 className="design-font-en">Fire App</h1>
+        <Button
+          className="btn btn-primary"
+          variant="contained"
+          // color="primary"
+          size="large"
+          onClick={async () => {
+            try {
+              await auth.signOut()
+              props.history.push('login')
+            } catch (error: any) {
+              alert(error.message)
+            }
+          }}
+        >
+          Logout
+          <ExitToApp />
+        </Button>
         <section className="section">
           <FormControl>
             <Box

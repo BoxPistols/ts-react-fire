@@ -16,10 +16,5 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
-  "workbench.colorCustomizations": {
-    "activityBar.background": "#c98505",
-    "titleBar.activeBackground": "#e7b624",
-    "titleBar.activeForeground": "#F2FCF7"
-  },
   "html.format.wrapLineLength": 80
 }

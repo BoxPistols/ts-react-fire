@@ -1,4 +1,4 @@
-import { Button, Grid, ListItem } from '@material-ui/core'
+import { Button, Grid } from '@material-ui/core'
 import {
   createTheme,
   makeStyles,
@@ -48,43 +48,41 @@ export const TaskItem: React.FC<Props> = (props) => {
   return (
     <>
       <ThemeProvider theme={themeX}>
-        <ListItem>
-          <h2>{props.title}</h2>
+        <h4 className="design-font-en">{props.title}</h4>
 
-          <Grid container justifyContent="flex-start" alignItems="center">
-            {/* <div style={{ minWidth: 150 }}>{title}</div> */}
-            <CustomizedInputs
-              label="edit"
-              value={title}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setTitle(e.target.value)
-              }
-              style={{
-                margin: '8px 0 4px 0',
-                minWidth: '320px',
-              }}
-            />
-            <div style={{ display: 'flex', gap: '8px' }}>
-              <Button
-                onClick={editTask}
-                variant="outlined"
-                // className={styles.btn} // css module
-                className={classes.edit} // makeStyles
-              >
-                <EditOutlined />
-                <span>保存</span>
-              </Button>
-              <Button
-                onClick={deleteTask}
-                variant="outlined"
-                className={classes.del} // makeStyles
-              >
-                <DeleteOutlined />
-                <span>削除</span>
-              </Button>
-            </div>
-          </Grid>
-        </ListItem>
+        <Grid container justifyContent="flex-start" alignItems="center">
+          <div style={{ minWidth: 150 }}>{title}</div>
+          <CustomizedInputs
+            label="edit"
+            value={title}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setTitle(e.target.value)
+            }
+            style={{
+              margin: '8px 0 4px 0',
+              minWidth: '320px',
+            }}
+          />
+          <div style={{ display: 'flex', gap: '8px' }}>
+            <Button
+              onClick={editTask}
+              variant="outlined"
+              // className={styles.btn} // css module
+              className={classes.edit} // makeStyles
+            >
+              <EditOutlined />
+              <span>保存</span>
+            </Button>
+            <Button
+              onClick={deleteTask}
+              variant="outlined"
+              className={classes.del} // makeStyles
+            >
+              <DeleteOutlined />
+              <span>削除</span>
+            </Button>
+          </div>
+        </Grid>
       </ThemeProvider>
     </>
   )

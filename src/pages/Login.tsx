@@ -71,9 +71,10 @@ const Login: React.FC = (props: any) => {
             ? async () => {
                 try {
                   //Firebase ver9 compliant (modular)
+                  // FIXME! アドレスの決め打ち?
                   await signInWithEmailAndPassword(auth, email, password)
                   // props.history.push('/')
-                  moveRoot()
+                  moveRoot() // 成功
                 } catch (error: any) {
                   alert(error.message)
                 }
@@ -81,6 +82,7 @@ const Login: React.FC = (props: any) => {
             : async () => {
                 try {
                   //Firebase ver9 compliant (modular)
+                  // FIXME! 同じデータを複数のユーザーが見る事になる? -> TODO: 一旦新規作成させない
                   await createUserWithEmailAndPassword(auth, email, password)
                   // props.history.push('/')
                   moveRoot()

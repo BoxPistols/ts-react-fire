@@ -9,6 +9,10 @@
   max-width: fit-content;
 }
 
+.login__root {
+  width: auto;
+}
+
 .mt {
   margin-top: 16px;
 }

@@ -1,9 +1,9 @@
-import firebase from 'firebase/compat/app'
-import 'firebase/compat/auth'
-import 'firebase/compat/firestore'
-// import { getAuth } from "firebase/auth";
+//Firebase ver9 compliant (modular)
+import { initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
+import { getFirestore } from 'firebase/firestore'
 
-export const firebaseApp = firebase.initializeApp({
+const firebaseApp = initializeApp({
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
   authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
   databaseURL: process.env.REACT_APP_FIREBASE_DATABASE,
@@ -12,8 +12,6 @@ export const firebaseApp = firebase.initializeApp({
   messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
 })
-
-export const db = firebaseApp.firestore()
-const auth = firebase.auth()
-// const auth = getAuth(firebaseApp);
-export default auth
+//Firebase ver9 compliant (modular)
+export const auth = getAuth(firebaseApp)
+export const db = getFirestore(firebaseApp)

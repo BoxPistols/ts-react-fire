@@ -16,5 +16,13 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
-  "html.format.wrapLineLength": 80
+  "html.format.wrapLineLength": 80,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#1B3038",
+    "titleBar.activeBackground": "#25444F",
+    "titleBar.activeForeground": "#FAFCFD"
+  },
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
 }

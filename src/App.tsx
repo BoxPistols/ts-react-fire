@@ -77,7 +77,7 @@ export const App: React.FC = (props: any) => {
 
   return (
     <div className={styles.app__root}>
-      <h1 className="design-font-en">Todo App by React/Firebase</h1>
+      <h1 className="design-font-en">Todo React/Fire</h1>
       <button
         className={styles.app__logout}
         // onClick={moveLogin}
